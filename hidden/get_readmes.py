@@ -3,7 +3,7 @@ import sys
 import re
 import os
 
-ip = sys.argv[1] if len(sys.argv) > 1 else '192.168.1.240'
+ip = os.getenv('darkly_ip')
 baseurl = 'http://' + ip + '/.hidden/'
 reg = re.compile('<a href=\"([a-z]+\/)\">')
 http = urllib3.PoolManager()

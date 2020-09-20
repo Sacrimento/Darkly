@@ -14,3 +14,6 @@ Aussi un md5 => false, on a le couple I_am_admin:false
 
 4.1 Obvious exploitable SQL injection
 
+# 5. /?page=XXX
+Lance un alert('wtf?'), peut-être un XSS à exploit
+
