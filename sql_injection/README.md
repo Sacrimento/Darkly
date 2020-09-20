@@ -98,6 +98,6 @@ On remarque qu'un `user` nommé `Flag` existe, un hash est présent dans la colo
 
 ### Récupérer le flag
 
-Avec une rapide recherche internet, on découvre que `5ff9d0165b4f92b14994e5c685cdce28`, et une fois déchiffré, nous donne `FortyTwo`.
-Il nous suffit de la lower de le sha256 : `sha256(fortytwo) = 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5`
+Avec une rapide recherche internet, on découvre que `5ff9d0165b4f92b14994e5c685cdce28` est un md5, et une fois déchiffré, nous donne `FortyTwo`.
+Il nous suffit de le lower puis de le sha256 : `sha256(fortytwo) = 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5`
 
