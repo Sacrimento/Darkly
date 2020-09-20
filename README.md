@@ -9,7 +9,7 @@ MAYBE NOT DONE
 
 # 2. ssh port 4242
 
-# 3. Cookie: I_am_admin=68934a3e9455fa72420237eb05902327
+# 3. DONE : Cookie: I_am_admin=68934a3e9455fa72420237eb05902327
 Aussi un md5 => false, on a le couple I_am_admin:false
 
 # 4. /?page=member 
