@@ -28,4 +28,3 @@ if __name__ == '__main__':
                 print(f'Found flag {flag} with {u}:{w}')
                 exit()
 
-    

@@ -1,11 +1,7 @@
 # Member SQL injection
 
-## Identification
-
 Sur /index.php?page=searchimg, on peut rechercher les images par id. En testant on se rend compte que l'input n'est pas protégé et qu'on peut injecter du sql dans le where.
 La requête SQL ressemble à ça: `SELECT title, url FROM list_images where id = $id`
-
-## Exploit
 
 ### Récupération des tables
 
@@ -78,8 +74,10 @@ ETC...
 
 On remarque le commentaire de l'image qui a pour titre `Hack me ?`
 
-### Récupérer le flag
-
 Une fois reverse `1928e8083cf461a51303633093573c46`, nous donne `albatroz`
 Il nous suffit de le lower puis de le sha256 : `sha256(albatroz) = f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188`
+
+# Comment fix ?
+
+Il faudra ici sanitize les inputs utilisateur au maximum, mais surtout utiliser les "requêtes paramétrées", gérées par le serveur, qui ajouteront les paramètres à l'execution des requêtes. Il sera alors impossible d'ajouter un bout de requêtes SQL, étéant donné que la requête préparée sera pré-compilée, et les paramètres, non.
 

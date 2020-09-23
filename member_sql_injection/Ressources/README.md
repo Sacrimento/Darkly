@@ -1,11 +1,7 @@
 # Member SQL injection
 
-## Identification
-
 Sur /index.php?page=member, on peut rechercher les membres par id. En testant on se rend compte que l'input n'est pas protégé et qu'on peut injecter du sql dans le where.
 La requête SQL ressemble à ça: `SELECT first_name, surname FROM users where id_user = $id`
-
-## Exploit
 
 ### Récupération des tables
 
@@ -96,8 +92,10 @@ ETC...
 ```
 On remarque qu'un `user` nommé `Flag` existe, un hash est présent dans la colonne `countersign` et des instructions sont présentes dans la colonne `Commentaire`
 
-### Récupérer le flag
-
 Avec une rapide recherche internet, on découvre que `5ff9d0165b4f92b14994e5c685cdce28` est un md5, et une fois déchiffré, nous donne `FortyTwo`.
 Il nous suffit de le lower puis de le sha256 : `sha256(fortytwo) = 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5`
+
+# Comment fix ?
+
+Il faudra ici sanitize les inputs utilisateur au maximum, mais surtout utiliser les "requêtes paramétrées", préparées par le serveur, qui ajouteront les paramètres à l'execution des requêtes. Il sera alors impossible d'ajouter un bout de requêtes SQL, étéant donné que la requête préparée sera pré-compilée, et les paramètres, non.
 
